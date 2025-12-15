@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DrBaker-Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+.logo-img{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  border-radius:12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.logo-img:hover{
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+    :root{
+      --accent:#d97706; /* amber-600 */
+      --muted:#6b7280;
+      --bg:#fff7ed;
+      --card:#fff;
+      font-family: 'Cairo', sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);color:#111}
+    
+    header{background:linear-gradient(90deg,rgba(0,0,0,0.02),rgba(37, 31, 31, 0.02));padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    
+    .brand{display:flex;align-items:center;gap:12px}
+    
+    .logo{width:100px;height:100px;border-radius:12px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px}
+    
+    nav a{margin-left:14px;text-decoration:none;color:#111;font-weight:600}
+    
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:36px 24px}
+    .hero .intro h1{font-size:32px;margin:0 0 8px}
+    .hero .intro p{color:var(--muted);margin:0 0 16px}
+    
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;
+    transform: translateY(-2px);box-shadow: 0 6px 16px rgba(0,0,0,0.15);}
+    
+    .hero .image{background-image:url('card.jpg');background-size:cover;background-position:center;
+                  border-radius:14px;height:300px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+    
+    main{padding:24px}
+    
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    
+    .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 16px rgba(2,6,23,0.06);display:flex;flex-direction:column;gap:10px}
+    
+    .card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+    
+    .card h3{margin:0;font-size:18px}
+    
+    .price{font-weight:700;color:var(--accent)}
+    
+    section.about{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff9f2)}
+    
+    footer{padding:18px 24px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+    
+    .contact-form{max-width:520px;padding:14px;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.06)}
+    
+    .field{display:flex;flex-direction:column;margin-bottom:8px}
+    
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e6e6e6;font-size:14px}
+    
+    button[type=submit]{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer}
+    @media (max-width:880px){.hero{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}nav{margin-top:8px}}
+
+    .card button:hover{background: var(--accent); color:#fff;}
+
+    .fade-up{
+              opacity: 0;
+              transform: translateY(30px);
+              transition: all 0.8s ease;}
+
+    .fade-up.show{
+                  opacity: 1;
+                  transform: translateY(0);}
+    .card{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+.card button{
+  transition: all 0.25s ease;
+}
+
+.card button:active{
+  transform: scale(0.9);
+}
+.cta{
+  transition: all 0.3s ease;
+}
+
+.cta:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+<div class="brand">
+  <img src="logo.png" alt="DrBaker Logo" class="logo-img">
+  <div>
+    <div style="font-weight:700">DrBaker</div>
+    <div style="font-size:13px;color:var(--muted)">
+      Fresh daily. Delivery within the city
+    </div>
+  </div>
+</div>
+
+    <nav aria-label="القائمة">
+      <a href="#products">Products</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Order now</a>
+    </nav> 
+  </header>
+
+  <section class="hero fade-up" aria-labelledby="hero-heading">
+    <div class="intro">
+      <h1 id="hero-heading">Made With Love</h1>
+      <p>We bake bread, pastries, and desserts daily with natural ingredients. Order now and enjoy fast delivery.</p>
+      <a class="cta" href="#contact">Order Now</a>
+      <div style="margin-top:16px;color:var(--muted);font-size:13px">Working hours: 7:00 - 18:00 (Friday is a holiday)</div>
+    </div>
+    <div class="image" role="img" aria-label="Image of baked goods"></div>
+  </section>
+
+  <main>
+    <section id="products" class="fade-up">
+      <h2 style="margin:0 0 12px">Our featured products</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="sourdoughBread.jpg" alt="sourdough bread">
+          <h3>sourdough bread</h3>
+          <div style="color:var(--muted);font-size:13px">Baked daily with natural ingredients</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><div class="price">85 L.E</div><button class="cta" style="background:transparent;color:var(--accent);padding:8px;border-radius:8px;border:1px solid var(--accent)">Add to cart</button></div>
+        </article>
+
+        <article class="card">
+          <img src="Germanpretzel.jpg" alt="German pretzel">
+          <h3>German pretzel</h3>
+          <div style="color:var(--muted);font-size:13px">Crispy on the outside and soft on the inside</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><div class="price">18 L.E</div><button class="cta" style="background:transparent;color:var(--accent);padding:8px;border-radius:8px;border:1px solid var(--accent)">Add to cart</button></div>
+        </article>
+
+        <article class="card">
+          <img src="CorissantPistachios.jpg" alt="Corissant Pistachios">
+          <h3>Corissant Pistachios</h3>
+          <div style="color:var(--muted);font-size:13px">A favorite choice for children</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><div class="price">32 L.E</div><button class="cta" style="background:transparent;color:var(--accent);padding:8px;border-radius:8px;border:1px solid var(--accent)">Add to cart</button></div>
+        </article>
+
+        <article class="card">
+          <img src="MagnumDBLchocochips.jpg" alt="Magnum DBL choco chips">
+          <h3>Magnum DBL choco chips</h3>
+          <div style="color:var(--muted);font-size:13px">Ideal for events</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><div class="price">40 L.E</div><button class="cta" style="background:transparent;color:var(--accent);padding:8px;border-radius:8px;border:1px solid var(--accent)">Add to cart</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about fade-up" aria-labelledby="about-heading">
+      <h2 id="about-heading">Our featured products</h2>
+      <p style="margin:8px 0;color:var(--muted)">We start our day by selecting the finest ingredients: fresh, locally sourced flour and natural yeasts. We believe that bread shouldn't be controlled by appearances, so we don't skimp on proportions or flavor.</p>
+      <ul style="margin:8px 0 0;color:var(--muted)">
+        <li>Natural products without artificial preservatives</li>
+        <li>Vegeti option available on request</li>
+        <li>Delivery within the city and collection from the branch</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="fade-up" style="margin-top:20px;display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start">
+      <div>
+        <h2>Order list</h2>
+        <p style="color:var(--muted)">Add the products to the cart and then fill in the delivery details.</p>
+        <div class="card" id="cart" data-empty="true">
+          <div style="color:var(--muted)">Your cart is empty — try adding a product</div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="contact-form">
+          <h3 style="margin-top:0">Order now</h3>
+          <form id="orderForm">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" required placeholder="Enter the name" />
+            </div>
+            <div class="field">
+              <label for="phone">phone number</label>
+              <input id="phone" name="phone" required placeholder="01xxxxxxxx" />
+            </div>
+            <div class="field">
+              <label for="address">The Address</label>
+              <textarea id="address" name="address" rows="3" required placeholder=""></textarea>
+            </div>
+            <div class="field">
+              <label for="payment">Payment Method</label>
+              <select id="payment" name="payment">
+                <option>Cash on delivery</option>
+                <option>Bank Transfer</option>
+              </select>
+            </div>
+            <button type="submit">Order now</button>
+            <div id="msg" style="margin-top:8px;color:var(--muted);font-size:14px"></div>
+          </form>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> All rights reserved.</div>
+    <div style="text-align:left;color:var(--muted)">phone number: 010-0000-000  Branch: </div>
+  </footer>
+
+  <script>
+    // small interactive behavior (no backend)
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // demo: add-to-cart buttons
+    document.querySelectorAll('.card button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        const title = card.querySelector('h3').textContent;
+        const price = card.querySelector('.price') ? card.querySelector('.price').textContent : '—';
+        addToCart({title,price});
+      });
+    });
+
+function addToCart(item){
+const cart = document.getElementById('cart');
+const row = document.createElement('div');
+row.style.display='flex';row.style.justifyContent='space-between';row.style.marginBottom='8px';
+row.innerHTML = `<div>${item.title}</div><div style="font-weight:700">${item.price}</div>`;
+cart.appendChild(row);
+}
+
+
+    // order form
+    document.getElementById('orderForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const msg = document.getElementById('msg');
+      if(!name||!phone||!address){ msg.textContent = 'Please fill in all fields.'; return }
+      msg.textContent = 'Your order has been received — we will contact you soon to confirm the details.';
+      this.reset();
+      // In production: send to server via fetch() to API endpoint
+    });
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+    });
+  },{ threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  function addToCart(item){
+  const cart = document.getElementById('cart');
+
+  if(cart.dataset.empty === "true"){
+    cart.innerHTML = '';
+    cart.dataset.empty = "false";
+  }
+
+  const row = document.createElement('div');
+  row.style.display = 'flex';
+  row.style.justifyContent = 'space-between';
+  row.style.marginBottom = '8px';
+  row.style.opacity = '0';
+  row.style.transform = 'translateX(20px)';
+  row.style.transition = 'all 0.4s ease';
+
+  row.innerHTML = `
+    <div>${item.title}</div>
+    <div style="font-weight:700">${item.price}</div>
+  `;
+
+  cart.appendChild(row);
+
+  requestAnimationFrame(() => {
+    row.style.opacity = '1';
+    row.style.transform = 'translateX(0)';
+  });
+}
+
+  </script>
+</body>
+</html>
