@@ -230,9 +230,15 @@
       transform: translateY(0);
     }
 
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.card{
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
 
     .card:hover {
       transform: translateY(-6px) scale(1.02);
@@ -254,6 +260,13 @@
     .cta:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      align-items: stretch;
     }
   </style>
 </head>
@@ -291,7 +304,8 @@
   <main>
     <section id="products" class="fade-up">
       <h2 style="margin:0 0 12px">Our featured products</h2>
-      <div class="grid">
+      <div class="products-grid">
+
         <article class="card">
           <img src="sourdoughBread.jpg" alt="sourdough bread">
           <h3>sourdough bread</h3>
@@ -325,7 +339,6 @@
           </div>
         </article>
 
-
         <article class="card">
           <img src="PanSwiss.png" alt="Pan Swiss">
           <h3>Pan Swiss</h3>
@@ -347,23 +360,22 @@
               to cart</button>
           </div>
         </article>
+
+        <article class="card">
+          <img src="Brownies.jpg" alt="Brownies">
+          <h3>Brownies</h3>
+          <div style="color:var(--muted);font-size:13px">Ideal for events</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+            <div class="price"> L.E</div><button class="cta"
+              style="background:transparent;color:var(--accent);padding:8px;border-radius:8px;border:1px solid var(--accent)">Add
+              to cart</button>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <article class="card">
-      <img src="Brownies.jpg" alt="Brownies">
-      <h3>Brownies</h3>
-      <div style="color:var(--muted);font-size:13px">Ideal for events</div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
-        <div class="price"> L.E</div><button class="cta"
-          style="background:transparent;color:var(--accent);padding:8px;border-radius:8px;border:1px solid var(--accent)">Add
-          to cart</button>
-      </div>
-    </article>
 
-
-    </div>
-    </section>
 
     <section id="about" class="about fade-up" aria-labelledby="about-heading">
       <h2 id="about-heading">Our featured products</h2>
