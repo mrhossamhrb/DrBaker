@@ -300,17 +300,18 @@
         animation-duration: 45s;
       }
     }
+
     .carousel-track {
-  display: flex;
-  gap: 24px;
-  width: max-content;
-}
+      display: flex;
+      gap: 24px;
+      width: max-content;
+    }
 
-.carousel-track .card {
-  flex: 0 0 280px;   /* عرض ثابت للكارت */
-  max-width: 280px;
-}
-
+    .carousel-track .card {
+      flex: 0 0 280px;
+      /* عرض ثابت للكارت */
+      max-width: 280px;
+    }
   </style>
 </head>
 
@@ -437,6 +438,20 @@
                 to cart</button>
             </div>
           </article>
+
+                    <article class="card">
+            <img src="Focaccia.jpg" alt="Focaccia">
+            <h3>Focaccia</h3>
+            <div style="color:var(--muted);font-size:13px">Ideal for events</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+              <div class="price"> L.E</div><button class="cta"
+                style="background:transparent;color:var(--accent);
+                padding:8px;border-radius:8px;border:1px solid var(--accent)">Add
+                to cart</button>
+            </div>
+          </article>
+
+
         </div>
       </div>
     </section>
