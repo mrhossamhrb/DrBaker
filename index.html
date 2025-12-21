@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description"
-    content="DrBaker - Fresh daily baked goods with natural ingredients. Delivery within the city.">
+  <meta name="description" content="DrBaker - Fresh daily baked goods with natural ingredients. Delivery within the city.">
   <title>DrBaker - Fresh Baked Goods</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -145,7 +144,7 @@
       gap: 2rem;
       align-items: center;
       padding: 3rem 1.5rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -207,62 +206,18 @@
       transform: scale(1.02);
     }
 
-    /* Products Section */
+    /* Products Section - 5 Columns */
     .products-section {
       padding: 2rem 1.5rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      padding: 1rem 0;
-    }
-
-    .carousel-track {
-      display: flex;
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 1.5rem;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
       margin-top: 1.5rem;
-    }
-
-    .carousel-btn {
-      background: var(--accent);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .carousel-btn:hover {
-      background: var(--accent-dark);
-      transform: scale(1.1);
-    }
-
-    .carousel-btn:disabled {
-      background: var(--muted-light);
-      cursor: not-allowed;
-      transform: none;
     }
 
     /* Cards */
@@ -273,9 +228,9 @@
       box-shadow: var(--shadow-md);
       display: flex;
       flex-direction: column;
-      flex: 0 0 280px;
       transition: all 0.3s ease;
       border: 1px solid rgba(0, 0, 0, 0.05);
+      height: 100%;
     }
 
     .card:hover {
@@ -294,13 +249,16 @@
     .card h3 {
       margin: 0 0 0.5rem;
       color: #111;
+      font-size: 1.1rem;
+      min-height: 2.5rem;
     }
 
     .card-description {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-bottom: 1rem;
       flex-grow: 1;
+      min-height: 2.5rem;
     }
 
     .card-footer {
@@ -313,18 +271,19 @@
     .price {
       font-weight: 700;
       color: var(--accent);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .add-to-cart {
       background: transparent;
       color: var(--accent);
-      padding: 0.6rem 1rem;
+      padding: 0.5rem 0.8rem;
       border-radius: var(--radius-sm);
       border: 2px solid var(--accent);
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-size: 0.9rem;
     }
 
     .add-to-cart:hover {
@@ -336,13 +295,42 @@
       transform: scale(0.95);
     }
 
+    /* Category Filter */
+    .category-filter {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
     /* About Section */
     .about {
       margin: 3rem auto;
       padding: 2rem;
       border-radius: var(--radius-lg);
       background: linear-gradient(180deg, #fff, #fff9f2);
-      max-width: 1200px;
+      max-width: 1400px;
       box-shadow: var(--shadow-md);
       border: 1px solid rgba(0, 0, 0, 0.05);
     }
@@ -369,7 +357,7 @@
     /* Contact & Order Section */
     .contact-section {
       padding: 2rem 1.5rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 380px;
@@ -526,7 +514,19 @@
       transform: translateY(0);
     }
 
-    /* Responsive Design */
+    /* Responsive Design for 5 Columns */
+    @media (max-width: 1400px) {
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
@@ -535,6 +535,10 @@
 
       .hero .intro p {
         max-width: 100%;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .contact-section {
@@ -576,6 +580,11 @@
         height: 250px;
       }
 
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
       footer {
         flex-direction: column;
         text-align: center;
@@ -584,14 +593,16 @@
     }
 
     @media (max-width: 576px) {
-      .card {
-        flex: 0 0 260px;
+      .category-filter {
+        justify-content: center;
       }
-
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+      
+      .card h3 {
+        font-size: 1rem;
+      }
+      
+      .card-description {
+        font-size: 0.8rem;
       }
     }
 
@@ -648,7 +659,7 @@
       <div class="intro">
         <h1 id="hero-heading">Made With ❤️ Love ❤️</h1>
         <p>We bake bread, pastries, and desserts daily with natural ingredients. Order now and enjoy fast delivery.</p>
-        <a class="cta" href="#contact">Order Now</a>
+        <a class="cta" href="#products">Browse Products</a>
         <div style="margin-top:1.5rem;color:var(--muted);font-size:0.9rem">
           Working hours: 7:00 - 18:00 (Friday is a holiday)
         </div>
@@ -658,24 +669,24 @@
 
     <section id="products" class="products-section fade-up">
       <div class="section-header">
-        <h2>Our Featured Products</h2>
+        <h2>Our Products (5 Columns Grid)</h2>
         <div style="color:var(--muted); font-size: 0.95rem;">
-          Scroll or use arrows to browse
+          Showing all products in a grid layout
         </div>
       </div>
 
-      <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack">
-          <!-- المنتجات سيتم إضافتها عبر JavaScript -->
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="prevBtn" aria-label="Previous products">
-            ←
-          </button>
-          <button class="carousel-btn" id="nextBtn" aria-label="Next products">
-            →
-          </button>
-        </div>
+      <!-- Category Filter -->
+      <div class="category-filter">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="bread">Bread</button>
+        <button class="filter-btn" data-filter="pastry">Pastry</button>
+        <button class="filter-btn" data-filter="dessert">Dessert</button>
+        <button class="filter-btn" data-filter="cake">Cake</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- المنتجات سيتم إضافتها عبر JavaScript -->
       </div>
     </section>
 
@@ -899,8 +910,7 @@
     // حالة التطبيق
     const state = {
       cart: [],
-      carouselPosition: 0,
-      isAnimating: false
+      currentFilter: 'all'
     };
 
     // تهيئة التطبيق
@@ -908,17 +918,17 @@
       // تعيين سنة التذييل
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      // تحميل المنتجات في الكاروسيل
+      // تحميل المنتجات في الشبكة
       renderProducts();
-
-      // تهيئة الكاروسيل
-      initCarousel();
 
       // إعداد مراقبة العناصر للظهور التدريجي
       initIntersectionObserver();
 
-      // إضافة منتجات عشوائية للعرض (للتجربة)
-      addSampleProductsToCart();
+      // إعداد أزرار التصفية
+      initFilterButtons();
+
+      // تحميل السلة من localStorage
+      loadCartFromLocalStorage();
 
       // التحقق من صحة رقم الهاتف
       document.getElementById('phone').addEventListener('input', function (e) {
@@ -931,17 +941,25 @@
       });
     });
 
-    // عرض المنتجات في الكاروسيل
+    // عرض المنتجات في الشبكة
     function renderProducts() {
-      const carouselTrack = document.getElementById('carouselTrack');
-      carouselTrack.innerHTML = '';
+      const productsGrid = document.getElementById('productsGrid');
+      productsGrid.innerHTML = '';
 
-      products.forEach(product => {
+      // تصفية المنتجات بناءً على التصنيف المحدد
+      let filteredProducts = products;
+      if (state.currentFilter !== 'all') {
+        filteredProducts = products.filter(product => product.category === state.currentFilter);
+      }
+
+      // عرض المنتجات
+      filteredProducts.forEach(product => {
         const productCard = document.createElement('article');
-        productCard.className = 'card';
+        productCard.className = 'card fade-up';
         productCard.setAttribute('aria-label', product.name);
         productCard.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" loading="lazy">
+          <img src="${product.image}" alt="${product.name}" loading="lazy" 
+               onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop'">
           <h3>${product.name}</h3>
           <div class="card-description">${product.description}</div>
           <div class="card-footer">
@@ -951,7 +969,7 @@
             </button>
           </div>
         `;
-        carouselTrack.appendChild(productCard);
+        productsGrid.appendChild(productCard);
       });
 
       // إضافة معالجات أحداث لأزرار "أضف إلى السلة"
@@ -965,108 +983,50 @@
           }
         });
       });
+
+      // مراقبة العناصر الجديدة للظهور التدريجي
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.card.fade-up').forEach(el => observer.observe(el));
     }
 
-    // تهيئة الكاروسيل
-    function initCarousel() {
-      const track = document.getElementById('carouselTrack');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const cardWidth = 280 + 24; // عرض الكارت + المسافة بينهما
-
-      function updateButtons() {
-        prevBtn.disabled = state.carouselPosition === 0;
-        const maxPosition = track.scrollWidth - track.parentElement.clientWidth;
-        nextBtn.disabled = state.carouselPosition >= maxPosition;
-      }
-
-      function moveCarousel(direction) {
-        if (state.isAnimating) return;
-        state.isAnimating = true;
-
-        const maxPosition = track.scrollWidth - track.parentElement.clientWidth;
-        let newPosition = state.carouselPosition + (direction * cardWidth * 3);
-
-        // تحديد الحدود
-        newPosition = Math.max(0, Math.min(newPosition, maxPosition));
-
-        // تطبيق الحركة
-        track.style.transform = `translateX(-${newPosition}px)`;
-        state.carouselPosition = newPosition;
-
-        // تحديث الأزرار بعد الانتهاء من الحركة
-        setTimeout(() => {
-          updateButtons();
-          state.isAnimating = false;
-        }, 500);
-      }
-
-      prevBtn.addEventListener('click', () => moveCarousel(-1));
-      nextBtn.addEventListener('click', () => moveCarousel(1));
-
-      // تحديث الأزرار عند تحميل الصفحة
-      updateButtons();
-
-      // إضافة إمكانية السحب بالماوس (سحب بالماوس)
-      let isDragging = false;
-      let startPosition = 0;
-      let currentTranslate = 0;
-      let prevTranslate = 0;
-
-      track.addEventListener('mousedown', startDrag);
-      track.addEventListener('touchstart', startDrag);
-      track.addEventListener('mouseup', endDrag);
-      track.addEventListener('touchend', endDrag);
-      track.addEventListener('mousemove', drag);
-      track.addEventListener('touchmove', drag);
-
-      function startDrag(e) {
-        if (e.type === 'touchstart') {
-          startPosition = e.touches[0].clientX;
-        } else {
-          startPosition = e.clientX;
-        }
-        isDragging = true;
-        track.style.transition = 'none';
-      }
-
-      function drag(e) {
-        if (!isDragging) return;
-        e.preventDefault();
-        let currentPosition = 0;
-        if (e.type === 'touchmove') {
-          currentPosition = e.touches[0].clientX;
-        } else {
-          currentPosition = e.clientX;
-        }
-        const diff = currentPosition - startPosition;
-        currentTranslate = state.carouselPosition - diff;
-
-        // تحديد الحدود
-        const maxPosition = track.scrollWidth - track.parentElement.clientWidth;
-        currentTranslate = Math.max(0, Math.min(currentTranslate, maxPosition));
-
-        track.style.transform = `translateX(-${currentTranslate}px)`;
-      }
-
-      function endDrag() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.style.transition = 'transform 0.3s ease';
-
-        // تحديث حالة الكاروسيل
-        state.carouselPosition = currentTranslate;
-        track.style.transform = `translateX(-${state.carouselPosition}px)`;
-
-        updateButtons();
-      }
+    // إعداد أزرار التصفية
+    function initFilterButtons() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          // إزالة النشط من جميع الأزرار
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // إضافة النشط للزر المحدد
+          this.classList.add('active');
+          
+          // تحديث التصفية
+          state.currentFilter = this.getAttribute('data-filter');
+          
+          // إعادة عرض المنتجات
+          renderProducts();
+          
+          // تمرير إلى قسم المنتجات
+          if (window.innerWidth < 768) {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
     }
 
     // إضافة منتج إلى السلة
     function addToCart(product) {
       // التحقق مما إذا كان المنتج موجودًا بالفعل في السلة
       const existingItemIndex = state.cart.findIndex(item => item.id === product.id);
-
+      
       if (existingItemIndex !== -1) {
         // زيادة الكمية إذا كان المنتج موجودًا
         state.cart[existingItemIndex].quantity += 1;
@@ -1119,12 +1079,21 @@
               <div style="font-weight: 600;">${item.name}</div>
               <div style="font-size: 0.8rem; color: var(--muted);">
                 ${item.price} × ${item.quantity}
+                <button class="quantity-btn" data-index="${index}" data-action="decrease" 
+                  style="background: none; border: none; color: var(--accent); cursor: pointer; margin: 0 5px;">
+                  -
+                </button>
+                <span>${item.quantity}</span>
+                <button class="quantity-btn" data-index="${index}" data-action="increase"
+                  style="background: none; border: none; color: var(--accent); cursor: pointer; margin: 0 5px;">
+                  +
+                </button>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 0.5rem;">
               <div style="font-weight: 700;">${itemTotal} L.E</div>
               <button class="remove-item" data-index="${index}" 
-                style="background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem;" 
+                style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 1.2rem;" 
                 aria-label="Remove ${item.name} from cart">
                 ×
               </button>
@@ -1133,7 +1102,15 @@
           cartItems.appendChild(cartItem);
         });
 
-        // إضافة معالجات أحداث لأزرار الإزالة
+        // إضافة معالجات أحداث لأزرار الكمية والإزالة
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+          button.addEventListener('click', function () {
+            const index = parseInt(this.getAttribute('data-index'));
+            const action = this.getAttribute('data-action');
+            updateCartItemQuantity(index, action);
+          });
+        });
+
         document.querySelectorAll('.remove-item').forEach(button => {
           button.addEventListener('click', function () {
             const index = parseInt(this.getAttribute('data-index'));
@@ -1151,12 +1128,32 @@
       }
     }
 
+    // تحديث كمية منتج في السلة
+    function updateCartItemQuantity(index, action) {
+      if (action === 'increase') {
+        state.cart[index].quantity += 1;
+      } else if (action === 'decrease') {
+        if (state.cart[index].quantity > 1) {
+          state.cart[index].quantity -= 1;
+        } else {
+          // إذا كانت الكمية 1، إزالة المنتج
+          removeFromCart(index);
+          return;
+        }
+      }
+      
+      updateCartDisplay();
+      saveCartToLocalStorage();
+      showNotification('Cart updated');
+    }
+
     // إزالة منتج من السلة
     function removeFromCart(index) {
+      const itemName = state.cart[index].name;
       state.cart.splice(index, 1);
       updateCartDisplay();
       saveCartToLocalStorage();
-      showNotification('Item removed from cart');
+      showNotification(`${itemName} removed from cart`);
     }
 
     // حفظ السلة في localStorage
@@ -1171,19 +1168,6 @@
         state.cart = JSON.parse(savedCart);
         updateCartDisplay();
       }
-    }
-
-    // إضافة منتجات عشوائية للعرض (للتجربة)
-    function addSampleProductsToCart() {
-      // إضافة منتجين عشوائيين للعرض
-      const randomProducts = [...products].sort(() => 0.5 - Math.random()).slice(0, 2);
-      randomProducts.forEach(product => {
-        state.cart.push({
-          ...product,
-          quantity: 1
-        });
-      });
-      updateCartDisplay();
     }
 
     // عرض إشعار
@@ -1215,28 +1199,6 @@
         }
       }, 3000);
     }
-
-    // إضافة أنماط CSS للرسوم المتحركة
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes slideInRight {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-      @keyframes fadeOut {
-        to {
-          opacity: 0;
-          transform: translateX(100%);
-        }
-      }
-    `;
-    document.head.appendChild(style);
 
     // معالجة تقديم الطلب
     document.getElementById('orderForm').addEventListener('submit', function (e) {
@@ -1315,8 +1277,27 @@
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     }
 
-    // تحميل السلة من localStorage عند التحميل
-    window.addEventListener('load', loadCartFromLocalStorage);
+    // إضافة أنماط CSS للرسوم المتحركة
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 
