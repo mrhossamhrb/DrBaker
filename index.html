@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="DrBaker - Fresh daily baked goods with natural ingredients. Delivery within the city.">
+  <meta name="description"
+    content="DrBaker - Fresh daily baked goods with natural ingredients. Delivery within the city.">
   <title>DrBaker - Fresh Baked Goods</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -840,7 +841,7 @@
         price: "0 L.E",
         category: "Cake"
       },
-            {
+      {
         id: 11,
         name: "Apple Crumble Tart",
         image: "Apple_Crumble_Tart.jpg",
@@ -849,13 +850,22 @@
         category: "Tart"
       }
       ,
-            {
+      {
         id: 12,
         name: "Nutella tart",
         image: "Nutella_tart.jpg",
         description: "a delicious sweet pie made with a shortcrust pastry base, filled with abundant Nutella chocolate cream.",
         price: "0 L.E",
         category: "Tart"
+      }
+      ,
+      {
+        id: 12,
+        name: "Babka Nutella",
+        image: "Babka Nutella.jpg",
+        description: "a sweet and beautiful bread that is delicious as a dessert or perfect for breakfast as well.",
+        price: "0 L.E",
+        category: "Babka"
       }
     ];
 
@@ -1029,7 +1039,7 @@
     function addToCart(product) {
       // التحقق مما إذا كان المنتج موجودًا بالفعل في السلة
       const existingItemIndex = state.cart.findIndex(item => item.id === product.id);
-      
+
       if (existingItemIndex !== -1) {
         // زيادة الكمية إذا كان المنتج موجودًا
         state.cart[existingItemIndex].quantity += 1;
