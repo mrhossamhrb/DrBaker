@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="DrBaker - Fresh daily baked goods with natural ingredients. Delivery within the city.">
+  <meta name="description"
+    content="DrBaker - Fresh daily baked goods with natural ingredients. Delivery within the city.">
   <title>DrBaker - Fresh Baked Goods</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -596,11 +597,11 @@
       .category-filter {
         justify-content: center;
       }
-      
+
       .card h3 {
         font-size: 1rem;
       }
-      
+
       .card-description {
         font-size: 0.8rem;
       }
@@ -896,7 +897,7 @@
         price: "0 L.E",
         category: "Blondies"
       }
-            ,
+      ,
       {
         id: 16,
         name: "Bombolone Nutella cream",
@@ -905,7 +906,7 @@
         price: "0 L.E",
         category: "Blondies"
       }
-           ,
+      ,
       {
         id: 17,
         name: "Bombolone Pistachio cream",
@@ -914,70 +915,78 @@
         price: "0 L.E",
         category: "Blondies"
       }
-          ,
+      ,
       {
         id: 18,
         name: "Cheese Cake",
         image: "Cheese_cake.jpg",
         description: "a rich dessert with a creamy cheese filling ",
         price: "0 L.E",
-        category: "Blondies"
+        category: "cake"
       },
-            {
+      {
         id: 19,
         name: "Cheese cake blue berry",
         image: "Cheese cake blue berry.jpg",
         description: "creamy, tangy, sweet, and tart all at the same time",
         price: "0 L.E",
-        category: "Blondies"
+        category: "cake"
       },
-                  {
+      {
         id: 20,
         name: "Croissant almonds",
         image: "Croissant almonds.jpg",
         description: "Ideal for breakfast, brunch, or a mid-afternoon snack le goûter Pairs wonderfully with coffee or tea",
         price: "0 L.E",
-        category: "Blondies"
+        category: "Croissant"
       },
-                {
+      {
         id: 21,
         name: "Croissant cheddar",
         image: "Croissant cheddar.jpg",
         description: "croissant dough and cheddar cheese Golden brown, often with visible melted cheese or a sprinkle of it on top.",
         price: "0 L.E",
-        category: "Blondies"
+        category: "Croissant"
       },
-              {
+      {
         id: 22,
         name: "Croissant Cheese & Zaatar",
         image: "Croissant Cheese & Zaatar.jpg",
         description: "As a hearty breakfast or brunch item. A flavorful snack any time of day.",
         price: "0 L.E",
-        category: "Blondies"
+        category: "Croissant"
       },
-            {
+      {
         id: 23,
         name: "Pistachio Croissant",
         image: "Pistachio Croissant.jpeg",
         description: "Close-up of a tempting pistachio croissant, generously topped with creamy pistachio filling and sprinkled with chopped pistachios",
         price: "0 L.E",
-        category: "Blondies"
+        category: "Croissant"
       },
-                  {
+      {
         id: 24,
         name: "Plain Croissant",
         image: "Plain_Croissant.jpg",
         description: "It's a versatile treat enjoyed alone or with coffee, jam, or savory",
         price: "0 L.E",
-        category: "Blondies"
+        category: "Croissant"
       },
-                        {
+      {
         id: 25,
         name: "Cup Croissant Blue Berry",
         image: "cup_croissant.jpg",
         description: "a pastry that combines the classic flaky, buttery texture of a traditional croissant with a sweet and tangy blueberry filling.",
         price: "0 L.E",
-        category: "Blondies"
+        category: "Croissant"
+      },
+      {
+        id: 26,
+        name: "Lemon Drizzle Cake",
+        image: "Lemon Drizzle Cake.jpg",
+        description: "Battenberg cake and the Victoria sponge, lemon drizzle is one of the most iconic British cakes.",
+        price: "0 L.E",
+        category: "Cake"
       },
     ];
 
@@ -1073,21 +1082,21 @@
     // إعداد أزرار التصفية
     function initFilterButtons() {
       const filterButtons = document.querySelectorAll('.filter-btn');
-      
+
       filterButtons.forEach(button => {
         button.addEventListener('click', function () {
           // إزالة النشط من جميع الأزرار
           filterButtons.forEach(btn => btn.classList.remove('active'));
-          
+
           // إضافة النشط للزر المحدد
           this.classList.add('active');
-          
+
           // تحديث التصفية
           state.currentFilter = this.getAttribute('data-filter');
-          
+
           // إعادة عرض المنتجات
           renderProducts();
-          
+
           // تمرير إلى قسم المنتجات
           if (window.innerWidth < 768) {
             document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
@@ -1100,7 +1109,7 @@
     function addToCart(product) {
       // التحقق مما إذا كان المنتج موجودًا بالفعل في السلة
       const existingItemIndex = state.cart.findIndex(item => item.id === product.id);
-      
+
       if (existingItemIndex !== -1) {
         // زيادة الكمية إذا كان المنتج موجودًا
         state.cart[existingItemIndex].quantity += 1;
@@ -1215,7 +1224,7 @@
           return;
         }
       }
-      
+
       updateCartDisplay();
       saveCartToLocalStorage();
       showNotification('Cart updated');
